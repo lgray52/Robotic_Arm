@@ -64,7 +64,6 @@ Rough Timeline:
 * Around mid January, have box set up for hand assembly and have preliminary wiring done
 * Assemble hand, fit with strings, and attach to servo late January
 
-Gaby - main CAD
-Lucy - code, secondary CAD
+Gaby - main CAD; Lucy - code, secondary CAD
 
 [Back to Table of Contents](#Table_of_Contents)
