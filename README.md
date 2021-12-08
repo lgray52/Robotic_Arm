@@ -52,6 +52,9 @@ The final plan included some fairly major changes from our first design solution
 
 #### Constraints
 * Ability of boards available in the lab to run the target number of servos
+* Target finish date 1st of February
+* Mr. Helmstetter says Gaby is a safety concern; also knives and soldering
+* Modelling the hand - how joints will work and move
 
 
 ### Schedule
