@@ -63,8 +63,8 @@ The final plan included some fairly major changes from our first design solution
 
 Rough Timeline:
 * Finish code & box design by winter break
-* CAD completely finished by mid-January
-* Around mid January, have box set up for hand assembly and have preliminary wiring done
+* CAD completely finished by mid-January (snow day delay 1 week - CAD completed by late Jan)
+* Around mid January, have box set up for hand assembly and have preliminary wiring done 
 * Assemble hand, fit with strings, and attach to servo late January
 
 Gaby - main CAD; Lucy - code, secondary CAD
