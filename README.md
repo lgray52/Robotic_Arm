@@ -7,7 +7,7 @@ Articulated arm project, by Lucy Gray and Gaby D'Alessio
   * [Materials](#Materials)
   * [Criteria and Constraints](#Criteria_and_Constraints)
   * [Schedule](#Schedule)
-  * [Problems and Solutions](#Problems&Solutions)
+  * [Problems and Solutions](#Problems_and_Solutions)
 
 ## Planning
 
@@ -73,7 +73,7 @@ Gaby - main CAD; Lucy - code, secondary CAD
 [Back to Table of Contents](#Table_of_Contents)
 
 
-### Problems&Solutions
+### Problems_and_Solutions
 
 #### Coding
 * Running 16 servos with one board
