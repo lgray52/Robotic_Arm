@@ -7,7 +7,7 @@ Articulated arm project, by Lucy Gray and Gaby D'Alessio
   * [Materials](#Materials)
   * [Criteria and Constraints](#Criteria_and_Constraints)
   * [Schedule](#Schedule)
-  * [Problems and Solutions](#Problems_and_Solutions)
+* [Problems and Solutions](#Problems_and_Solutions)
 
 ## Planning
 
@@ -78,6 +78,9 @@ Gaby - main CAD; Lucy - code, secondary CAD
 #### Coding
 * Running 16 servos with one board
   * The first challenge was figuring out what exactly could solve this problem. The solution ended up being [this](https://www.adafruit.com/product/815) servo driver, capable of running 16 servos at one time. This driver came with a CircuitPython library for ease of coding.
-  * Or so I thought. The CircuitPython library included some problematically named files and code examples with different coding grammar. but eventually worked. Until it didn't. After break, all of the libraries refused to collaborate with one another because some of the libraries had been updated to .py files rather than .mpy files, meaning they took up too much space because they were text files and not binary, and they would not run the .mpy files because they had been updated to CircuitPython 7. This took several classes to figure out, but I was able to update them all to CircuitPython 7 and .mpy files. Here is a picture of the correct files needed (they are all CircuitPython version 7). <img src="evidence/correct_files.PNG" alt="files needed" height="300">
+  * Or so I thought. The CircuitPython library included some problematically named files and code examples with different coding grammar. but eventually worked. Until it didn't. After break, all of the libraries refused to collaborate with one another because some of the libraries had been updated to .py files rather than .mpy files, meaning they took up too much space because they were text files and not binary, and they would not run the .mpy files because they had been updated to CircuitPython 7. This took several classes to figure out, but I was able to update them all to CircuitPython 7 and .mpy files. Here is a picture of the correct files needed (they are all CircuitPython version 7). 
+  <img src="evidence/correct_files.PNG" alt="files needed" height="200">
 * Running 32 buttons with one board
-  * This was an equal problem to the servos, however the solution was slightly simpler. Using an analog_in function, the electrical value of a pin can be returned and printed. Using this idea, by placing resistors between buttons to reduce the amount of electricity flowing through the chain of buttons, a single analog pin can read the differing frequencies, and this can be used to run several buttons (I got up to 11 easily differentiable values). This is [Mr. Helmstetter's](https://github.com/helmstk1) orginal idea. ![button_arm_wiring](https://user-images.githubusercontent.com/56937421/151619769-e6eb2731-7987-4b61-bd32-019058429d9e.PNG)
+  * This was an equal problem to the servos, however the solution was slightly simpler. Using an analog_in function, the electrical value of a pin can be returned and printed. Using this idea, by placing resistors between buttons to reduce the amount of electricity flowing through the chain of buttons, a single analog pin can read the differing frequencies, and this can be used to run several buttons (I got up to 11 easily differentiable values). This is [Mr. Helmstetter's](https://github.com/helmstk1) orginal idea.
+  <img src="evidence/button_arm_wiring.PNG" alt="analog button wiring" height="300">
+* Wiring note - make sure the batteries are oriented right. It *will* save you 30 minutes.
