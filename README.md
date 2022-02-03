@@ -1,5 +1,5 @@
 # Robotic_Arm
-Articulated arm project, by Lucy Gray and Gaby D'Alessio
+Articulated arm project, by [Lucy Gray](https://github.com/lgray52) and [Gaby D'Alessio](https://github.com/gdaless20)
 
 ## Table_of_Contents
 * [Planning](#Planning)
