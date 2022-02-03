@@ -1,0 +1,134 @@
+``` python
+import board
+import time
+from analogio import AnalogIn
+from adafruit_servokit import ServoKit
+
+# do NOT need the pca library stuff
+
+analog_A1 = AnalogIn(board.A1)
+
+def get_voltage(pin):  # read analog pin 1 to use different buttons
+    return (pin.value*3.3) / 65536
+
+kit = ServoKit(channels=16)  # set up servo driver
+
+# angles for different servos
+angle01 = 0  # elbow
+angle02 = 0  # wrist
+
+angle11 = 0  # thumb
+angle12 = 0
+
+angle21 = 0  # pointer
+angle22 = 0
+angle23 = 0
+
+angle31 = 0  # middle
+angle32 = 0
+angle33 = 0
+
+angle41 = 0  # ring
+angle42 = 0
+angle43 = 0
+
+angle51 = 0  # pinky
+angle52 = 0
+angle53 = 0
+
+while True:
+    if get_voltage(analog_A1) > 3.17 and angle01 < 174:  # so it doesn't go over angle limits
+        angle01 = angle01 + 6  # have to adjust angle here, not inline
+        kit.servo[0].angle = angle01
+        print("elbow up")
+        print(get_voltage(analog_A1), "\t", "angle:", angle01)
+        time.sleep(.01)
+    
+    elif get_voltage(analog_A1) > 2.45 and angle01 >= 6:  # use elif to not have it run the above
+        angle01 = angle01 - 6
+        kit.servo[0].angle = angle01
+        print("elbow down")
+        print(get_voltage(analog_A1), "\t", "angle:", angle01
+        time.sleep(.01)
+    
+    elif get_voltage(analog_A1) > 2.00 and angle02 < 174:
+        angle02 = angle02 + 6
+        kit.servo[1].angle = angle02
+        print("wrist up")
+        print(get_voltage(analog_A1), "\t", "angle:", angle02)
+        time.sleep(.01)
+    
+    elif get_voltage(analog_A1) > 1.69 and angle02 >= 6:
+        angle02 = angle02 - 6
+        kit.servo[1].angle = angle02
+        print("wrist down")
+        print(get_voltage(analog_A1), "\t", "angle:", angle02)
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > 1.47 and angle11 < 174:
+        angle11 = angle11 + 6
+        kit.servo[2].angle = angle11
+        print("thumb base up")
+        print(get_voltage(analog_A1), "\t", "angle:", angle11)
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > 1.30 and angle11 > 6:
+        angle11 = angle11 - 6
+        kit.servo[2].angle = angle11
+        print("thumb base down")
+        print(get_voltage(analog_A1), "\t", "angle:", angle11)
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > 1.16 and angle12 < 174:
+        angle12 = angle12 + 6
+        kit.servo[3].angle = angle12
+        print("thumb top up")
+        print(get_voltage(analog_A1), "\t", "angle:", angle12)
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > 1.06 and angle12 > 6:
+        angle12 = angle12 - 6
+        kit.servo[3].angle = angle12
+        print("thumb top down")
+        print(get_voltage(analog_A1), "\t", "angle:", angle12)
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > 0.97 and angle21 < 174:
+        angle21 = angle21 + 6
+        kit.servo[4].angle = angle21
+        print("pointer base up")
+        print(get_voltage(analog_A1), "\t", "angle:", angle21)
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > 0.89 and angle21 > 6:
+        angle21 = angle21 - 6
+        kit.servo[4].angle = angle21
+        print("pointer base down")
+        print(get_voltage(analog_A1), "\t", "angle:", angle21)
+        time.sleep(.01)
+
+  elif get_voltage(analog_A1) < 0.89:
+        print(get_voltage(analog_A1), "\t", angle_0, "\t", angle_1)
+
+    else:
+        print(get_voltage(analog_A1), "\t", angle_0, angle_1)
+
+    time.sleep(0.1)
+
+"""
+FORMULA:
+    elif get_voltage(analog_A1) > "smaller" and angle"" < 174:
+        angle"" = angle"" + 6
+        kit.servo[#].angle = angle""
+        print(" ' ' up")
+        print(get_voltage(analog_A1), "\t", angle"")
+        time.sleep(.01)
+
+    elif get_voltage(analog_A1) > "smaller" and angle"" > 6:
+        angle"" = angle"" - 6
+        kit.servo[#].angle = angle""
+        print(" ' ' down")
+        print(get_voltage(analog_A1), "\t", angle"")
+        time.sleep(.01)
+"""    
+'''
