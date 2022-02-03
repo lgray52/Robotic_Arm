@@ -1,4 +1,4 @@
-``` python
+```python
 import board
 import time
 from analogio import AnalogIn
@@ -131,4 +131,4 @@ FORMULA:
         print(get_voltage(analog_A1), "\t", angle"")
         time.sleep(.01)
 """    
-'''
+```
