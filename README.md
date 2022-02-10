@@ -8,6 +8,7 @@ Articulated arm project, by [Lucy Gray](https://github.com/lgray52) and [Gaby D'
   * [Criteria and Constraints](#Criteria_and_Constraints)
   * [Schedule](#Schedule)
 * [Problems and Solutions](#Problems_and_Solutions)
+* [Final](#Final)
 
 ## Planning
 
@@ -75,10 +76,9 @@ Gaby - main CAD; Lucy - code, secondary CAD
 
 ## Problems_and_Solutions
 
-[Jump to CAD](#CAD)
-
 ### General:
 * It became aparent very quickly that a nomenclature was needed to keep variables for servos, angles, and buttons separate. Each finger is a value 1-5: thumb is 1, pointer 2, middle , ring 4, and pinky 5 -- the wrist and elbow joints are 0. The next number would be the joint in the finger: 1 for the base joint where the digit meets the palm, the metacarpophalangeal, 2 for the middle, the proximal interphalangeal, and 3 for the top joint at the tip, the distal interphalangeal. The elbow is 0-1 and the wrist is 0-2.
+* The whole project was slightly delayed by snow and Gaby unfortunately having COVID, both of which majorly disrupted our schedule but were obviously unavoidable and unintended. To be fair, the schedule was a bit ambitious from the get go, but our project timeline was delayed probably three weeks by that combination. 
 
 ### Coding:
 * Running 16 servos with one board
@@ -91,8 +91,13 @@ Gaby - main CAD; Lucy - code, secondary CAD
 * Wiring note - make sure the batteries are oriented right. It *will* save you 30 minutes, or potentially a battery exploding on you!
 * For simplicity, Mr. Helmstetter asked that I arranged variables into arrays instead of naming them according to the system, so they are named a little differently in the code. An explanation of arrays is in the code itself.
 
+### CAD:
 
-#### Final Code:
+## Final
+
+[Jump to CAD](#CAD)
+
+### Code
 ```python
 import board
 import time
