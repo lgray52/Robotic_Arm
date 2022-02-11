@@ -91,7 +91,7 @@ Gaby - main CAD; Lucy - code, secondary CAD
 * Wiring note - make sure the batteries are oriented right. It *will* save you 30 minutes, or potentially a battery exploding on you!
 * For simplicity, Mr. Helmstetter asked that I arranged variables into arrays instead of naming them according to the system, so they are named a little differently in the code. An explanation of arrays is in the code itself.
 
-### CAD:
+### OnShape:
 
 ## Final
 
