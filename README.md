@@ -103,18 +103,17 @@ Gaby - main CAD; Lucy - code, secondary CAD
 ### Code
 ```python
 import board
-import time
+from time import sleep
 from analogio import AnalogIn
 from adafruit_servokit import ServoKit
-# servokit library works with this servo driver: https://www.adafruit.com/product/815 (it controls 16 servos!)
 
 # do NOT need the pca library stuff
 
-analog_A1 = AnalogIn(board.A1)  # measure electrical in values from analog pins to differentiate between buttons
+analog_A1 = AnalogIn(board.A1)
 analog_A2 = AnalogIn(board.A2)
 analog_A3 = AnalogIn(board.A3)
 
-def get_voltage(pin):  # read analog pin 1 to use different buttons (since we need 32)
+def get_voltage(pin):  # read analog pin 1 to use different buttons
     return (pin.value*3.3) / 65536
 
 kit = ServoKit(channels=16)  # set up servo driver
@@ -123,274 +122,260 @@ kit = ServoKit(channels=16)  # set up servo driver
 angle01 = 0  # elbow
 angle02 = 0  # wrist
 
-thumb = [0,0]  # array
+thumb = [0, 0]
 
 """
-An array essentially allows multiple variables in a system to be easily grouped. By creating a list 
-using the notation a = [#, #, #], a value is assigned to each variable corresponding with the initial 
-variable name. Each of these values can be called in the code by calling them by the overall name and 
-the number which they appear in the list - for example, if you wanted to call a variable from the list
-entitled "a," and you wanted the second one in the list, you would call it a[1] - the numbers count 
-from zero.
-
-The arrays in this code use the name of the digit (for the fingers), and set three values corresponding 
-to them to zero. They are referenced as digit[0-2], so the middle joint on the ring finger would be ring[1]. 
+An array essentially allows multiple variables in a system to be easily grouped. By
+creating a list using the notation a = [#, #, #], a value is assigned to each variable
+corresponding with the initial variable name. Each of these values can be called in
+the code by calling them by the overall name and the number which they appear in the
+list - for example, if you wanted to call a variable from the list entitled "a," and you
+wanted the second one in the list, you would call it a[2].
 
 """
 
-pointer = [0,0,0]
+pointer = [0, 0, 0]  # array
 
-middle = [0,0,0]
+middle = [0, 0, 0]
 
-ring = [0,0,0]
+ring = [0, 0, 0]
 
-pinky = [0,0,0]
-
+pinky = [0, 0, 0]
 
 while True:
     if get_voltage(analog_A1) > 3.17 and angle01 < 174:
         # so it doesn't go over angle limits
         angle01 = angle01 + 6  # have to adjust angle here, not inline
-        kit.servo[0].angle = angle01  # servokit library control
-        print("elbow up")  # send to serial monitor to check
-        print(get_voltage(analog_A1), "\t", angle01)  # print voltage to confirm, and check angle
-        time.sleep(.01)
-
-    elif get_voltage(analog_A1) > 2.45 and angle01 >= 6:  # other extreme angle limit
-        # use elif to not have it run the above
-        angle01 = angle01 - 6  # this code is practically the same as above, it just decreases the angle of the servo
         kit.servo[0].angle = angle01
-        print("elbow down")
-        print(get_voltage(analog_A1), "\t", angle01)
-        time.sleep(.1)
+        # print("elbow up")  these took up too much space, so I needed to comment them out, but kept them in the code to check
+        # print(get_voltage(analog_A1), "\t", angle01)
+        sleep(.01)
 
-"""
-Each angle has two sections of code, each corresponding to a different button based on the voltage returned 
-from the analog pin. The first increases the angle of the servo when one button is pressed, and the other 
-decreases the angle of the servo (meaning it rotates in the opposite direction) when another is pressed. 
-This pattern repeats for all of the code, eventually switching to analog pins 2 and 3 to read more values, 
-because after a certain point the values are too close together to be consistent enough (and also to fit wires 
-onto a breadboard). 
-
-"""
+    elif get_voltage(analog_A1) > 2.45 and angle01 >= 6:
+        # use elif to not have it run the above
+        angle01 = angle01 - 6
+        kit.servo[0].angle = angle01
+        # print("elbow down")
+        # print(get_voltage(analog_A1), "\t", angle01)
+        sleep(.1)
 
     elif get_voltage(analog_A1) > 2.00 and angle02 < 174:
         angle02 = angle02 + 6
         kit.servo[1].angle = angle02
-        print("wrist up")
-        print(get_voltage(analog_A1), "\t", angle02)
-        time.sleep(.01)
+        # print("wrist up")
+        # print(get_voltage(analog_A1), "\t", angle02)
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 1.69 and angle02 >= 6:
         angle02 = angle02 - 6
         kit.servo[1].angle = angle02
-        print("wrist down")
-        print(get_voltage(analog_A1), "\t", angle02)
-        time.sleep(.01)
+        # print("wrist down")
+        # print(get_voltage(analog_A1), "\t", angle02)
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 1.47 and thumb[0] < 174:
         thumb[0] = thumb[0] + 6
         kit.servo[2].angle = thumb[0]
-        print("thumb base up")
-        print(get_voltage(analog_A1), "\t", thumb[0])
-        time.sleep(.01)
+        # print("thumb base up")
+        # print(get_voltage(analog_A1), "\t", thumb[0])
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 1.30 and thumb[0] > 6:
         thumb[0] = thumb[0] - 6
         kit.servo[2].angle = thumb[0]
-        print("thumb base down")
-        print(get_voltage(analog_A1), "\t", thumb[0])
-        time.sleep(.01)
+        # print("thumb base down")
+        # print(get_voltage(analog_A1), "\t", thumb[0])
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 1.16 and thumb[1] < 174:
         thumb[1] = thumb[1] + 6
         kit.servo[3].angle = thumb[1]
-        print("thumb top up")
-        print(get_voltage(analog_A1), "\t", thumb[1])
-        time.sleep(.01)
+        # print("thumb top up")
+        # print(get_voltage(analog_A1), "\t", thumb[1])
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 1.06 and thumb[1] > 6:
         thumb[1] = thumb[1] - 6
         kit.servo[3].angle = thumb[1]
-        print("thumb top down")
-        print(get_voltage(analog_A1), "\t", thumb[1])
-        time.sleep(.01)
+        # print("thumb top down")
+        # print(get_voltage(analog_A1), "\t", thumb[1])
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 0.97 and pointer[0] < 174:
         pointer[0] = pointer[0] + 6
         kit.servo[4].angle = pointer[0]
-        print("pointer base up")
-        print(get_voltage(analog_A1), "\t", pointer[0])
-        time.sleep(.01)
+        # print("pointer base up")
+        # print(get_voltage(analog_A1), "\t", pointer[0])
+        sleep(.01)
 
     elif get_voltage(analog_A1) > 0.89 and pointer[0] > 6:
         pointer[0] = pointer[0] - 6
         kit.servo[4].angle = pointer[0]
-        print("pointer base down")
-        print(get_voltage(analog_A1), "\t", pointer[0])
-        time.sleep(.01)
-    
+        # print("pointer base down")
+        # print(get_voltage(analog_A1), "\t", pointer[0])
+        sleep(.01)
+
     elif get_voltage(analog_A1) > 0.83 and pointer[1] < 174:
         pointer[1] = pointer[1] + 6
         kit.servo[5].angle = pointer[1]
-        print("pointer middle up")
-        print(get_voltage(analog_A1), "\t", pointer[1])
-        time.sleep(.01)
+        # print("pointer middle up")
+        # print(get_voltage(analog_A1), "\t", pointer[1])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 3.17 and pointer[1] > 6:
         pointer[1] = pointer[1] - 6
         kit.servo[5].angle = pointer[1]
-        print("pointer middle down")
-        print(get_voltage(analog_A2), "\t", pointer[1])
-        time.sleep(.01)
-    
+        # print("pointer middle down")
+        # print(get_voltage(analog_A2), "\t", pointer[1])
+        sleep(.01)
+
     elif get_voltage(analog_A2) > 2.45 and pointer[2] < 174:
         pointer[2] = pointer[2] + 6
         kit.servo[6].angle = pointer[2]
-        print("pointer top up")
-        print(get_voltage(analog_A2), "\t", pointer[2])
-        time.sleep(.01)
+        # print("pointer top up")
+        # print(get_voltage(analog_A2), "\t", pointer[2])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 2.00 and pointer[2] > 6:
         pointer[2] = pointer[2] - 6
         kit.servo[6].angle = pointer[2]
-        print("pointer top down")
-        print(get_voltage(analog_A2), "\t", pointer[2])
-        time.sleep(.01)
+        # print("pointer top down")
+        # print(get_voltage(analog_A2), "\t", pointer[2])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 1.69 and middle[0] < 174:
         middle[0] = middle[0] + 6
         kit.servo[7].angle = middle[0]
-        print("middle base up")
-        print(get_voltage(analog_A2), "\t", middle[0])
-        time.sleep(.01)
+        # print("middle base up")
+        # print(get_voltage(analog_A2), "\t", middle[0])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 1.47 and middle[0] > 6:
         middle[0] = middle[0] - 6
         kit.servo[7].angle = middle[0]
-        print("middle base down")
-        print(get_voltage(analog_A2), "\t", middle[0])
-        time.sleep(.01)
+        # print("middle base down")
+        # print(get_voltage(analog_A2), "\t", middle[0])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 1.30 and middle[1] < 174:
         middle[1] = middle[1] + 6
         kit.servo[8].angle = middle[1]
-        print("middle middle up")
-        print(get_voltage(analog_A2), "\t", middle[1])
-        time.sleep(.01)
+        # print("middle middle up")
+        # print(get_voltage(analog_A2), "\t", middle[1])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 1.16 and middle[1] > 6:
         middle[1] = middle[1] - 6
         kit.servo[8].angle = middle[1]
-        print("middle middle down")
-        print(get_voltage(analog_A2), "\t", middle[1])
-        time.sleep(.01)
+        # print("middle middle down")
+        # print(get_voltage(analog_A2), "\t", middle[1])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 1.06 and middle[2] < 174:
         middle[2] = middle[2] + 6
         kit.servo[9].angle = middle[2]
-        print("middle top up")
-        print(get_voltage(analog_A2), "\t", middle[2])
-        time.sleep(.01)
+        # print("middle top up")
+        # print(get_voltage(analog_A2), "\t", middle[2])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 0.97 and middle[2] > 6:
         middle[2] = middle[2] - 6
         kit.servo[9].angle = middle[2]
-        print("middle top down")
-        print(get_voltage(analog_A2), "\t", middle[2])
-        time.sleep(.01)
+        # print("middle top down")
+        # print(get_voltage(analog_A2), "\t", middle[2])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 0.89 and ring[0] < 174:
         ring[0] = ring[0] + 6
         kit.servo[10].angle = ring[0]
-        print("ring base up")
-        print(get_voltage(analog_A2), "\t", ring[0])
-        time.sleep(.01)
+        # print("ring base up")
+        # print(get_voltage(analog_A2), "\t", ring[0])
+        sleep(.01)
 
     elif get_voltage(analog_A2) > 0.83 and ring[0] > 6:
         ring[0] = ring[0] - 6
         kit.servo[10].angle = ring[0]
-        print("ring base down")
-        print(get_voltage(analog_A2), "\t", ring[0])
-        time.sleep(.01)
-    
+        # print("ring base down")
+        # print(get_voltage(analog_A2), "\t", ring[0])
+        sleep(.01)
+
     elif get_voltage(analog_A3) > 3.17 and ring[1] < 174:
         ring[1] = ring[1] + 6
         kit.servo[11].angle = ring[1]
-        print("ring middle up")
-        print(get_voltage(analog_A3), "\t", ring[1])
-        time.sleep(.01)
+        # print("ring middle up")
+        # print(get_voltage(analog_A3), "\t", ring[1])
+        sleep(.01)
 
     elif get_voltage(analog_A3) > 2.45 and ring[1] > 6:
         ring[1] = ring[1] - 6
         kit.servo[11].angle = ring[1]
-        print("ring middle down")
-        print(get_voltage(analog_A3), "\t", ring[1])
-        time.sleep(.01)
-    
+        # print("ring middle down")
+        # print(get_voltage(analog_A3), "\t", ring[1])
+        sleep(.01)
+
     elif get_voltage(analog_A3) > 2.00 and ring[2] < 174:
         ring[2] = ring[2] + 6
         kit.servo[12].angle = ring[2]
-        print("ring top up")
-        print(get_voltage(analog_A3), "\t", ring[2])
-        time.sleep(.01)
+        # print("ring top up")
+        # print(get_voltage(analog_A3), "\t", ring[2])
+        sleep(.01)
 
     elif get_voltage(analog_A3) > 1.69 and ring[2] > 6:
         ring[2] = ring[2] - 6
         kit.servo[12].angle = ring[2]
-        print("ring top down")
-        print(get_voltage(analog_A3), "\t", ring[2])
-        time.sleep(.01)
-    
+        # print("ring top down")
+        # print(get_voltage(analog_A3), "\t", ring[2])
+        sleep(.01)
+
     elif get_voltage(analog_A3) > 1.47 and pinky[0] < 174:
         pinky[0] = pinky[0] + 6
         kit.servo[13].angle = pinky[0]
-        print("pinky base up")
-        print(get_voltage(analog_A3), "\t", pinky[0])
-        time.sleep(.01)
+        # print("pinky base up")
+        # print(get_voltage(analog_A3), "\t", pinky[0])
+        sleep(.01)
 
     elif get_voltage(analog_A3) > 1.30 and pinky[0] > 6:
         pinky[0] = pinky[0] - 6
         kit.servo[13].angle = pinky[0]
-        print("pinky base down")
-        print(get_voltage(analog_A3), "\t", pinky[0])
-        time.sleep(.01)
-    
+        # print("pinky base down")
+        # print(get_voltage(analog_A3), "\t", pinky[0])
+        sleep(.01)
+
     elif get_voltage(analog_A3) > 1.16 and pinky[1] < 174:
         pinky[1] = pinky[1] + 6
         kit.servo[14].angle = pinky[1]
-        print("pinky middle up")
-        print(get_voltage(analog_A3), "\t", pinky[1])
-        time.sleep(.01)
+        # print("pinky middle up")
+        # print(get_voltage(analog_A3), "\t", pinky[1])
+        sleep(.01)
 
     elif get_voltage(analog_A3) > 1.06 and pinky[1] > 6:
         pinky[1] = pinky[1] - 6
         kit.servo[14].angle = pinky[1]
-        print("pinky middle down")
-        print(get_voltage(analog_A3), "\t", pinky[1])
-        time.sleep(.01)
-    
+        # print("pinky middle down")
+        # print(get_voltage(analog_A3), "\t", pinky[1])
+        sleep(.01)
+
     elif get_voltage(analog_A3) > 0.97 and pinky[2] < 174:
         pinky[2] = pinky[2] + 6
         kit.servo[15].angle = pinky[2]
-        print("pinky top up")
-        print(get_voltage(analog_A3), "\t", pinky[2])
-        time.sleep(.01)
+        # print("pinky top up")
+        # print(get_voltage(analog_A3), "\t", pinky[2])
+        sleep(.01)
 
     elif get_voltage(analog_A3) > 0.89 and pinky[2] > 6:
         pinky[2] = pinky[2] - 6
         kit.servo[15].angle = pinky[2]
-        print("pinky top down")
-        print(get_voltage(analog_A3), "\t", pinky[2])
-        time.sleep(.01)
-    
+        # print("pinky top down")
+        # print(get_voltage(analog_A3), "\t", pinky[2])
+        sleep(.01)
+
     elif get_voltage(analog_A1) < 0.83:
         print(get_voltage(analog_A1))
 
     else:
         print(get_voltage(analog_A1))
 
-    time.sleep(0.1)
+    sleep(0.1)
 ```
 
 ### CAD
