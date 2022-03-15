@@ -360,6 +360,6 @@ credit: [NemanjaBabic](https://github.com/NemanjaBabic/AnimatronicRoboticHand)
 #### Box
 <img src="evidence/box_1.PNG" alt="box angle one, with hand" height="300"> <img src="evidence/box_2.PNG" alt="box top view open" height="300"> <img src="evidence/box_3.PNG" alt="box dimetric angle 1" height="300"> <img src="evidence/box_4.PNG" alt="box dimetriuc angle 2" height="300">
 
-<img src="evidence/button_board_diagram.png" alt="diagram for the button panel by joint" height="300">
+Button board arrangement: 
 
 [Back to Table of Contents](#Table_of_Contents)
