@@ -78,7 +78,7 @@ Gaby - main CAD; Lucy - code, secondary CAD
 
 ### General:
 * It became aparent very quickly that a nomenclature was needed to keep variables for servos, angles, and buttons separate. Each finger is a value 1-5: thumb is 1, pointer 2, middle , ring 4, and pinky 5 -- the wrist and elbow joints are 0. The next number would be the joint in the finger: 1 for the base joint where the digit meets the palm, the metacarpophalangeal, 2 for the middle, the proximal interphalangeal, and 3 for the top joint at the tip, the distal interphalangeal. The elbow is 0-1 and the wrist is 0-2.
-* The whole project was slightly delayed by snow and Gaby unfortunately having COVID, both of which majorly disrupted our schedule but were obviously unavoidable and unintended. To be fair, the schedule was a bit ambitious from the get go, but our project timeline was delayed probably three weeks by that combination. 
+* The whole project was slightly delayed by snow and Gaby unfortunately having COVID, both of which majorly disrupted our schedule but were obviously unavoidable and unintended. To be fair, the schedule was a bit ambitious from the get go, but our project timeline was delayed probably three weeks by that combination. Additionally, with the allocation of class time to module work, we ended up not having class time to finish the project. 
 
 ### Coding:
 * Running 16 servos with one board
@@ -360,6 +360,12 @@ credit: [NemanjaBabic](https://github.com/NemanjaBabic/AnimatronicRoboticHand)
 #### Box
 <img src="evidence/box_1.PNG" alt="box angle one, with hand" height="300"> <img src="evidence/box_2.PNG" alt="box top view open" height="300"> <img src="evidence/box_3.PNG" alt="box dimetric angle 1" height="300"> <img src="evidence/box_4.PNG" alt="box dimetriuc angle 2" height="300">
 
-Button board arrangement: 
+__Button board arrangement__: 
+
+<img src="evidence/button_board_diagram.png" alt="diagram for the button panel by joint" height="300">
+
+
+#### Final Pictures
+
 
 [Back to Table of Contents](#Table_of_Contents)
