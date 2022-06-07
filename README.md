@@ -93,6 +93,7 @@ Gaby - main CAD; Lucy - code, secondary CAD
   <img src="evidence/button_arm_wiring.PNG" alt="analog button wiring" height="300">
 * Wiring note - make sure the batteries are oriented right. It *will* save you 30 minutes, or potentially a battery exploding on you!
 * For simplicity, Mr. Helmstetter asked that I arranged variables into arrays instead of naming them according to the system, so they are named a little differently in the code. An explanation of arrays is in the code itself.
+* Towards the end of the project, as we were putting the box and hand together, the code encountered a variety of problems involving the servo board. At first, the problem turned out to be a minor wiring problem as the board was not connected to the proper power. However, once this problem was identified, a new and mysterious one appeared - rather than not being able to find the wiring connection to the board, the Metro was not able to find the I2C address of the board, a new problem entirely. Increasingly mystifying, a stripped down example code was able to locate the I2C address of the servo board with no problems whatsoever. As of yet, we do not know the root of this problem and cannot find a solution. 
 
 ### OnShape:
 * The first problem we had was finding/building a hand with enough digits for our project. For simplicity's sake, we chose [this](https://github.com/NemanjaBabic/AnimatronicRoboticHand) hand by NemanjaBabic. We decided to reduce the size before printing it, otherwise it would have been nearly a foot long from the base of the wrist to the top joint, but this did cause some problems with the holes for the strings because they were too narrow. This added a little bit more time to our construction process, as we had to physically widen the tunnels. As it turned out, the finger tip parts also didn't print with holes, and eventually we decided it was worth our time and effort to simply reprint the hand, scaled to 75% instead of 50%. The channels are manageable at this size, and the elastic is easier to insert into the hooks.
@@ -366,6 +367,6 @@ __Button board arrangement__:
 
 
 #### Final Pictures
-
+<img src="evidence/hand_1.jpg" alt="1st picture of hand" height="300"> <img src="evidence/hand_2.jpg" alt="2nd picture of hand" height="300"> <img src="evidence/hand_3.jpg" alt="3rd picture of hand" height="300"> <img src="evidence/hand_4.jpg" alt="4th picture of handadd" height="300">
 
 [Back to Table of Contents](#Table_of_Contents)
