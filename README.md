@@ -367,6 +367,11 @@ __Button board arrangement__:
 
 
 #### Final Pictures
-<img src="evidence/hand_1.jpg" alt="1st picture of hand" height="300"> <img src="evidence/hand_2.jpg" alt="2nd picture of hand" height="300"> <img src="evidence/hand_3.jpg" alt="3rd picture of hand" height="300"> <img src="evidence/hand_4.jpg" alt="4th picture of handadd" height="300">
+<img src="evidence/hand_1.jpg" alt="1st picture of hand" height="300"> <img src="evidence/hand_2.jpg" alt="2nd picture of hand" height="300"> <img src="evidence/hand_3.jpg" alt="3rd picture of hand" height="300"> <img src="evidence/hand_4.jpg" alt="4th picture of hand" height="300">
 
 [Back to Table of Contents](#Table_of_Contents)
+
+
+### Sabotage
+
+I don't even know how to start writing this, but on the last day we came in to our hand in shambles. It was immediately evident that something was wrong, because the hand was at the wrong angle and there were super glue stains all around the base. Knowing that Gaby had specifically glued the hand from the inside of the box to avoid these stains, we knew something was wrong. When we opened the box to check the damages, most of the wires to the servo had been snapped, many of the servo horns were out of line, and there were snippets of broken wire that had clearly been pulled out of the top and cut off, which we could tell because of the knots in the pieces. There were super glue fingerprints all over the inside of the backplate, so we can be sure someone opened the box. We have no idea who would have done this, but the damage is irreparable in the amount of time we have left in the year. Because a lot of the wires were pulled all the way out of the joints, we have no way of re-stringing the hand as many of the attatchment points had been sealed to keep the wires in place or to fasten the joint connectors. We think that someone might have pulled the hand all the way out, though the fishing line we used was strong enough that it seems unlikely that so many of the wires would have snapped, especially those inside the joints of the fingers, and without pulling all of the servo horns off the servos. We are incredibly sorry to have to finish a project that both of us have worked so long and so dilligently on like this, but it doesn't seem like there is much to do. Pictures of the damages below. 
